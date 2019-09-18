@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/dashboard',['as' => 'admin.dashboard','uses' =>'Admin\AdminController@index']); 
+Route::get('admin/dashboard',['as' => 'admin.dashboard','uses' =>'Admin\AdminController@index']);
+// Route::get('admin/test',['as' => 'admin.test','uses' =>'Admin\AdminController@test']); 
