@@ -296,19 +296,19 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
+        <li {!! request()->is('admin/dashboard')?'class="active treeview"':''!!}>
+          <a href="{{route('admin.dashboard')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+            <!-- <span class="pull-right-container"> -->
+              <!-- i class="fa fa-angle-left pull-right"></i> -->
             </span>
           </a>
-          <ul class="treeview-menu">
+        <!--   <ul class="treeview-menu">
             <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
+          </ul> -->
         </li>
-        <li class="treeview">
+ <!--        <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Layout Options</span>
@@ -345,25 +345,21 @@
             <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
             <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
           </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
+        </li> -->
+        <li {!! request()->is('admin/user')?'class="active treeview"':''!!}>
+          <a href="{{route('admin.user')}}">
             <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
+            <span>User Manager</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i>List</a></li>
+            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Add</a></li>
           </ul>
         </li>
-        <li class="treeview">
+      <!--   <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Forms</span>
             <span class="pull-right-container">
@@ -406,8 +402,8 @@
               <small class="label pull-right bg-red">5</small>
             </span>
           </a>
-        </li>
-        <li class="treeview">
+        </li> -->
+       <!--  <li class="treeview">
           <a href="#">
             <i class="fa fa-folder"></i> <span>Examples</span>
             <span class="pull-right-container">
@@ -463,7 +459,7 @@
         <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li -->>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -701,31 +697,6 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('admin-panel/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- Morris.js charts -->
-<script src="{{asset('admin-panel/bower_components/raphael/raphael.min.js')}}"></script>
-<script src="{{asset('admin-panel/bower_components/morris.js/morris.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{asset('admin-panel/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
-<!-- jvectormap -->
-<script src="{{asset('admin-panel/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{asset('admin-panel/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('admin-panel/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
-<!-- daterangepicker -->
-<script src="{{asset('admin-panel/bower_components/moment/min/moment.min.js')}}"></script>
-<script src="{{asset('admin-panel/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-<!-- datepicker -->
-<script src="{{asset('admin-panel/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="{{asset('admin-panel/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-<!-- Slimscroll -->
-<script src="{{asset('admin-panel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{asset('admin-panel/bower_components/fastclick/lib/fastclick.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('admin-panel/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('admin-panel/dist/js/pages/dashboard.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('admin-panel/dist/js/demo.js')}}"></script>
+@yield('js')
 </body>
 </html>
