@@ -15,7 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware'],function(){
+	
+});
+
 Route::get('admin/dashboard',['as' => 'admin.dashboard','uses' =>'Admin\AdminController@index']);
 // Route::get('admin/test',['as' => 'admin.test','uses' =>'Admin\AdminController@test']); 
 Route::get('admin/user',['as' => 'admin.user','uses' =>'Admin\UserController@index']);
-Route::get('admin/user/add',['as' => 'admin.user','uses' =>'Admin\UserController@index']); 
+Route::get('admin/user/add',['as' => 'admin.user.add','uses' =>'Admin\UserController@add']); 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
