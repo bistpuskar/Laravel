@@ -7,14 +7,14 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Users List</h3>
+              <h3 class="box-title">Category List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table class="table table-bordered">
                 <tr>
                   <th style="width: 10px">SN.</th>
-                  <th>Email</th>
+                  <th>Title</th>
                   <th>Created at</th>
                   <th>Status</th>
                   <th>Actions</th>
@@ -23,7 +23,7 @@
              @foreach($data['rows'] as $row)
                 <tr>
                   <td>1.</td>
-                  <td>{{ $row->email }}</td>
+                  <td>{{ $row->title }}</td>
                   <td>{{ $row->created_at }}</td>
                   <td>
                   @if($row->status == 1)
