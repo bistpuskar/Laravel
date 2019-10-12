@@ -18,7 +18,13 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  {{Form::email('email',null,['id'=>'email','Placeholder'=>'Enter Email','class'=>'form-control'])}}
+                  {{-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> --}}
+                  @if ($errors->has('email'))
+                  <span class="help-block error">
+                      <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+              @endif
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
