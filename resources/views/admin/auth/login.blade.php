@@ -7,15 +7,15 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{asset('admin-panel/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/admin-panel/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('admin-panel/bower_components/font-awesome/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/admin-panel/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{asset('admin-panel/bower_components/Ionicons/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/admin-panel/bower_components/Ionicons/css/ionicons.min.css')}}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('admin-panel/dist/css/AdminLTE.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/admin-panel/dist/css/AdminLTE.min.css')}}">
   <!-- iCheck -->
-  <link rel="stylesheet" href="{{asset('admin-panel/plugins/iCheck/square/blue.css')}}">
+  <link rel="stylesheet" href="{{asset('public/admin-panel/plugins/iCheck/square/blue.css')}}">
   <style>
     .error{
       color: #ff710c;
@@ -79,9 +79,9 @@
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
-<script src="{{asset('admin-panel/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('public/admin-panel/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{asset('admin-panel/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('public/admin-panel/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- iCheck -->
 <script src="../../plugins/iCheck/icheck.min.js"></script>
 <script>
