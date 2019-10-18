@@ -370,7 +370,7 @@
       </h1>
       <ul class="breadcrumb">
         <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li> <a href="{{route('admin.user')}}">User</li>
+        <li> <a href="{{route('admin.user')}}">User</a></li>
       </ul>
     </section>
 
