@@ -13,4 +13,9 @@ public function index(){
 public function add(){
 	return view('admin.category.add');
 }
+
+public function store(){
+
+}
+
 }

@@ -13,4 +13,13 @@ public function index(){
 public function add(){
 	return view('admin.user.add');
 }
+
+public function store(Request $request){
+	$user = new user;
+        $user->title = $request->input('email');
+        $user->save();
+       return redirect()->route('user');
+
+}
+
 }
