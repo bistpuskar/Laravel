@@ -52,13 +52,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="hidden">
-                            
-                            <input type="text" name="full_name" value="puskar">
-                            <input type="text" name="contact_no" value="puskar">
-                            <input type="text" name="address" value="puskar">
-                        </div>
-
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 

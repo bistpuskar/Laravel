@@ -14,6 +14,9 @@
               <table class="table table-bordered">
                 <tr>
                   <th style="width: 10px">SN.</th>
+                  <th>User Name </th>
+                  <th>Address</th>
+                  <th>Contact</th>
                   <th>Email</th>
                   <th>Created at</th>
                   <th>Status</th>
@@ -23,6 +26,9 @@
              @foreach($data['rows'] as $row)
                 <tr>
                   <td>1.</td>
+                  <td>{{ $row->username }}</td>
+                  <td>{{ $row->address }}</td>
+                  <td>{{ $row->contact_no }}</td>
                   <td>{{ $row->email }}</td>
                   <td>{{ $row->created_at }}</td>
                   <td>
