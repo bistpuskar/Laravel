@@ -1,7 +1,16 @@
 @extends('admin.layout.master')
 
 @section('content')
-
+   <section class="content-header">
+      <h1>
+        <small></small>
+      </h1>
+      <ul class="breadcrumb">
+        <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li> <a href="{{route('admin.user')}}">User</a></li>
+        <li> <a href="{{route('admin.user.add')}}">Add User</a></li>
+      </ul>
+    </section>
     <!-- Main content -->
     <section class="content">
       <div class="row">

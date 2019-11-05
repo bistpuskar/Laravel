@@ -202,17 +202,6 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        <small></small>
-      </h1>
-      <ul class="breadcrumb">
-        <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li> <a href="{{route('admin.user')}}">User</a></li>
-      </ul>
-    </section>
-
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
@@ -247,7 +236,7 @@
               </div>
             </a>
           </li>
-          <li>
+            <li>
             <a href="javascript:void(0)">
               <i class="menu-icon fa fa-file-code-o bg-green"></i>
 

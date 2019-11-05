@@ -66,11 +66,6 @@
         </div>
         <!-- ./col -->
       </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      </div>
-      <!-- /.row (main row) -->
-
     </section>
     <!-- /.content -->
 @endsection
