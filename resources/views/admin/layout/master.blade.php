@@ -10,7 +10,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>News Portal</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -222,7 +222,6 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -591,6 +590,31 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('public/admin-panel/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- Morris.js charts -->
-@yield('js')
+    <script src="{{asset('public/admin-panel/bower_components/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('public/admin-panel/bower_components/morris.js/morris.min.js')}}"></script>
+<!-- Sparkline -->
+<script src="{{asset('public/admin-panel/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+<!-- jvectormap -->
+<script src="{{asset('public/admin-panel/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{asset('public/admin-panel/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{asset('public/admin-panel/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{asset('public/admin-panel/bower_components/moment/min/moment.min.js')}}"></script>
+<script src="{{asset('public/admin-panel/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<!-- datepicker -->
+<script src="{{asset('public/admin-panel/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="{{asset('public/admin-panel/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+<!-- Slimscroll -->
+<script src="{{asset('public/admin-panel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{asset('public/admin-panel/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('public/admin-panel/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('public/admin-panel/dist/js/pages/dashboard.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('public/admin-panel/dist/js/demo.js')}}"></script>
 </body>
 </html>
