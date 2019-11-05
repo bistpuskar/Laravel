@@ -22,10 +22,9 @@
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
-                {{--  {{dd($data['rows'])}}   --}}
-             @foreach($data['rows'] as $row)
+             @foreach($data['rows'] as $sn=>$row)
                 <tr>
-                  <td>1.</td>
+                  <td>{{$sn+1}}</td>
                   <td>{{ $row->username }}</td>
                   <td>{{ $row->address }}</td>
                   <td>{{ $row->contact_no }}</td>
