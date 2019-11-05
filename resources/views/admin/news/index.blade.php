@@ -7,7 +7,7 @@
       </h1>
       <ul class="breadcrumb">
         <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li> <a href="{{route('admin.category')}}">Category</a></li>
+        <li> <a href="{{route('admin.news')}}">News</a></li>
       </ul>
     </section>
     <!-- Main content -->
@@ -16,7 +16,7 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Category List</h3>
+              <h3 class="box-title">News List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -40,10 +40,7 @@
                   <span class="label label-sm label-warning">Inactive</span>
                   @endif
                   </td>
-                  <td>
-                    <a href="{{ route('admin.category.edit',['id'=>$row->id])}}"></a>
-                    <a href="{{ route('admin.category.delete',['id'=>$row->id])}}"></a>
-                  </td>
+                  <td></td>
                 </tr>
                 @endforeach
               </table>

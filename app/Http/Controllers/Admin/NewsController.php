@@ -4,7 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Models\News;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller{
+class NewsController extends Controller{
 public function index(){
 	$data = [];
 	$data['rows'] = News::select('id','created_at','title','status')->get();
