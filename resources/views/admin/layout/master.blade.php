@@ -195,6 +195,19 @@
             <li><a href="{{route('admin.category.add')}}"><i class="fa fa-circle-o"></i> Add</a></li>
           </ul>
         </li>
+          <li {!! request()->is('admin/news')?'class="active treeview"':''!!}>
+          <a href="{{route('admin.news')}}">
+            <i class="fa fa-laptop"></i>
+            <span>News Manager</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('admin.news')}}"><i class="fa fa-circle-o"></i>List</a></li>
+            <li><a href="{{route('admin.news.add')}}"><i class="fa fa-circle-o"></i> Add</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
