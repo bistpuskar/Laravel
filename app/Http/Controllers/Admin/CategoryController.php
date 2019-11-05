@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller{
 public function index(){
@@ -14,7 +15,11 @@ public function add(){
 	return view('admin.category.add');
 }
 
-public function store(){
+public function store(Request $request){
+	  $category = new category;
+	    $category->title = $request->input('title');
+        $category->save();
+       return redirect()->route('admin.category');
 
 }
 
