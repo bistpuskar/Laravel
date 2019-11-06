@@ -15,7 +15,11 @@ public function add(){
 	return view('admin.news.add');
 }
 
-public function store(Request $request){
+public function store(Request $request){ 
+	$news = new news;
+	 $news->title = $news->input('title');
+        $news->save();
+       return redirect()->route('admin.news');
 }
 
 }
