@@ -24,7 +24,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" action="{{route('admin.news.store')}}" class="form-horizontal">
+            <form method="POST" action="{{route('admin.news.store')}}" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
               <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Title</label>
