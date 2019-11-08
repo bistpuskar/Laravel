@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,7 @@ public function add(){
 	return view('admin.news.add');
 }
 
+<<<<<<< HEAD
 public function store(Request $request){
 	if($request->hasFile('main_image')){
 		$image = $request->file('main_image');
@@ -38,6 +40,22 @@ public function store(Request $request){
 	]);
 	News::create($request->all());
 	return redirect()->route('admin.news');
+=======
+public function store(Request $request){ 
+
+	if ($request->hasFile('file')) {
+        $image = $request->file('image');
+        echo $image; die();
+        $name = $image->getClientOriginalName();
+        $size = $image->getClientSize();
+        $destinationPath = public_path('/images/news');
+        $image->move($destinationPath, $name);
+	 $news->title = $news->input('title');
+	 $news->image = $name;
+        $news->save();
+       return redirect()->route('admin.news');
+}
+>>>>>>> 020fa75752cf78503b3cee19f47105b5bd6b2411
 }
 
 }
