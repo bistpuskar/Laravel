@@ -24,6 +24,7 @@
                 <tr>
                   <th style="width: 10px">SN.</th>
                   <th>Title</th>
+                   <th>Image</th>
                   <th>Created at</th>
                   <th>Status</th>
                   <th>Actions</th>
@@ -32,6 +33,7 @@
                 <tr>
                   <td>{{$sn+1}}</td>
                   <td>{{ $row->title }}</td>
+                  <td></td>
                   <td>{{ $row->created_at }}</td>
                   <td>
                   @if($row->status == 1)
