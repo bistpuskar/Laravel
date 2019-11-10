@@ -41,8 +41,8 @@
                   @endif
                   </td>
                   <td>
-                    <a href="{{ route('admin.category.edit',['id'=>$row->id])}}"></a>
-                    <a href="{{ route('admin.category.delete',['id'=>$row->id])}}"></a>
+                    <a href="{{ route('admin.category.edit',['id'=>$row->id])}}"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{{ route('admin.category.delete',['id'=>$row->id])}}"> <i class="glyphicon glyphicon-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

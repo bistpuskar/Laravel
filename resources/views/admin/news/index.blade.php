@@ -48,7 +48,10 @@
                   <span class="label label-sm label-warning">Inactive</span>
                   @endif
                   </td>
-                  <td></td>
+                  <td>
+                    <a href="{{ route('admin.news.edit',['id'=>$row->id])}}"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{{ route('admin.news.delete',['id'=>$row->id])}}"> <i class="glyphicon glyphicon-trash"></i></a>
+                  </td>
                 </tr>
                 @endforeach
               </table>
