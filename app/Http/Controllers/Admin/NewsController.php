@@ -74,9 +74,9 @@ $data = [];
 	if(!$data['row']){
 		$request->session->flash('error_message','Invalid Request');
 		return redirect()->route('admin.news');
-		$data['row']->delete();
-		$request->session->flash('sucess_message','News Deleted Sucessfully');
-		return redirect()->route('admin.news');
 	}	
+		$data['row']->delete();
+		// $request->session->flash('sucess_message','News Deleted Sucessfully');
+		return redirect()->route('admin.news');
 }
 }
