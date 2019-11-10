@@ -34,7 +34,7 @@ public function store(Request $request){
 	$request->request->add([
 		'title' => str_slug($request->get('title')),
 		'status' => $request->get('status') == 'active'?1:0,
-		'image' => $filename
+		'image' => isset($filename) ? $filename:null
 	]);
 	News::create($request->all());
 	return redirect()->route('admin.news');

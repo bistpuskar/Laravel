@@ -34,7 +34,11 @@
                   <td>{{$sn+1}}</td>
                   <td>{{ $row->title }}</td>
                   <td>
+                    @if($row->image)
                     <img src="{{url('public/Images/News/'.$row->image)}}" alt="" width="50">
+                    @else
+                    <p>No Image</p>
+                    @endif
                   </td>
                   <td>{{ $row->created_at }}</td>
                   <td>

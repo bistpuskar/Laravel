@@ -39,7 +39,58 @@
                                 @endif
                             </div>
                         </div>
+                         <div class="form-group{{ $errors->has('writer') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Writer</label>
 
+                            <div class="col-md-6">
+                                <input id="writer" type="text" class="form-control" name="writer" value="" required autofocus>
+
+                                @if ($errors->has('writer'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('writer') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('short_desc') ? ' has-error' : '' }}">
+                            <label  class="col-md-4 control-label">Short Description</label>
+
+                            <div class="col-md-6">
+                                <textarea id="short_desc" class="form-control" name="short_desc" value="" required autofocus></textarea> 
+
+                                @if ($errors->has('short_desc'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('short_des') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('detail_desc') ? ' has-error' : '' }}">
+                            <label  class="col-md-4 control-label">Detail Description</label>
+
+                            <div class="col-md-6">
+                                <textarea id="detail_desc" class="form-control" name="detail_desc" value="" required autofocus></textarea> 
+
+                                @if ($errors->has('detail_desc'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('detail _des') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                         <div class="form-group{{ $errors->has('published_date') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Published Date</label>
+
+                            <div class="col-md-6">
+                                <input id="datepicker"  type="text" class="form-control" name="published_date" value="" required autofocus>
+
+                                @if ($errors->has('published_date'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('published_date') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('main_image') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Image</label>
 
@@ -67,4 +118,14 @@
           </div>
           <!-- /.box -->
     </section>
+@endsection
+@section('js') 
+<script src="{{asset('public/admin-panel/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+ $('#datepicker').datepicker({
+      format:'yyy/md/dd',autoclose: true
+    })
+  });
+</script>
 @endsection
