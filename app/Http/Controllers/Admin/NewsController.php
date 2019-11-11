@@ -1,11 +1,11 @@
-<?php
+<?php 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class NewsController extends Controller{
+class NewsController extends AdminBaseController{
 	protected $base_route = 'admin.news';
 	protected $view_path = 'admin.news';
 	protected $panel = 'News';
@@ -18,11 +18,11 @@ class NewsController extends Controller{
 public function index(){
 	$data = [];
 	$data['rows'] = News::select('id','created_at','title','image','status')->get();
-	return view('admin.news.index',compact('data')); 
+	return view($this->view_path.'.index',compact('data')); 
 }
 
 public function add(){
-	return view('admin.news.add');
+	return view($this->view_path.'.add');
 }
 public function store(Request $request){
 	 // $validator = Validator::make($request->all(), [
@@ -56,12 +56,12 @@ public function store(Request $request){
 	// dd($request->all());
 	News::create($request->all());
 	$request->session()->flash('sucess_message','News added Sucessfully');
-	return redirect()->route('admin.news');
+	return redirect()->route($this->base_route);
 }
 public function edit(Request $request,$id){
 	$data = [];
 	$data['row'] = News::where('id',$id)->first();
-	return view('admin.news.add',compact('data'));
+	return view($this->view_path.'.add',compact('data'));
 
 }
 public function update(Request $request,$id){
@@ -89,17 +89,21 @@ $data = [];
 	]);
 	$data['row']->update($request->all());
 	$request->session()->flash('sucess_message','News Updated Sucessfully');
-	return redirect()->route('admin.news');
+	return redirect()->route($this->base_route);
 }
 public function delete(Request $request,$id){
 $data = [];
 	$data['row'] = News::where('id',$id)->first();
 	if(!$data['row']){
 		$request->session->flash('error_message','Invalid Request');
-		return redirect()->route('admin.news');
+		return redirect()->route($this->base_route);
 	}	
+	$path = public_path(). '/images/news';
+	 if ($data['row']->image && file_exists($path.$data['row']->image)) {
+	    unlink($path.$data['row']->image);
+	}
 		$data['row']->delete();
 		 $request->session()->flash('sucess_message','News Deleted Sucessfully');
-		return redirect()->route('admin.news');
+		return redirect()->route($this->base_route);
 }
 }
