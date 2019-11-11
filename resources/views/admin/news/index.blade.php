@@ -19,6 +19,9 @@
               <h3 class="box-title">News List</h3>
             </div>
             <!-- /.box-header -->
+            @if(Session::has('sucess_message'))
+              <div class="alert alert-success"> {{ Session::get('sucess_message') }}</div>
+            @endif
             <div class="box-body">
               <table class="table table-bordered">
                 <tr>

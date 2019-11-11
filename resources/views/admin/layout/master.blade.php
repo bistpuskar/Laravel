@@ -295,6 +295,7 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('public/admin-panel/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+
 <!-- Morris.js charts -->
     <script src="{{asset('public/admin-panel/bower_components/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('public/admin-panel/bower_components/morris.js/morris.min.js')}}"></script>
@@ -322,5 +323,6 @@
 <script src="{{asset('public/admin-panel/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('public/admin-panel/dist/js/demo.js')}}"></script>
+@yield('js')
 </body>
 </html>
