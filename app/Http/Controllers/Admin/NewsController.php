@@ -41,14 +41,19 @@ public function store(Request $request){
 	    $filename = time() . '.' . $image->getClientOriginalExtension();
 	    $image->move($path, $filename);
 	}
+	$now = date('Y-m-d H:i'); //Fomat Date and time
+        $now = $request->published_date;
+        // dd($now);
 	$request->request->add([
 		'title' => str_slug($request->get('title')),
 		'writer' => $request->get('writer'),
 		'short_desc' => $request->get('short_desc'),
 		'detail_desc' => $request->get('detail_desc'),
+		'published_date' => $now,
 		'status' => $request->get('status') == 'active'?1:0,
 		'image' => isset($filename) ? $filename:null
 	]);
+	// dd($request->all());
 	News::create($request->all());
 	$request->session()->flash('sucess_message','News added Sucessfully');
 	return redirect()->route('admin.news');
@@ -56,7 +61,7 @@ public function store(Request $request){
 public function edit(Request $request,$id){
 	$data = [];
 	$data['row'] = News::where('id',$id)->first();
-	return view('admin.news.add');
+	return view('admin.news.add',compact('data'));
 
 }
 public function update(Request $request,$id){
@@ -67,16 +72,24 @@ $data = [];
 		$path = public_path(). '/images/news';
 	    $filename = time() . '.' . $image->getClientOriginalExtension();
 	    $image->move($path, $filename);
+	    if ($data['row']->image && file_exists($path.$data['row']->image)) {
+	    unlink($path.$data['row']->image);
+	    }
 	}
+	$now = date('Y-m-d H:i'); //Fomat Date and time
+        $now = $request->published_date;
 	$request->request->add([
 		'title' => str_slug($request->get('title')),
 		'writer' => $request->get('writer'),
 		'short_desc' => $request->get('short_desc'),
 		'detail_desc' => $request->get('detail_desc'),
+		'published_date' => $now,
 		'status' => $request->get('status') == 'active'?1:0,
-		'image' => isset($filename) ? $filename:null
+		'image' => isset($filename) ? $filename:$data['row']->image 
 	]);
 	$data['row']->update($request->all());
+	$request->session()->flash('sucess_message','News Updated Sucessfully');
+	return redirect()->route('admin.news');
 }
 public function delete(Request $request,$id){
 $data = [];

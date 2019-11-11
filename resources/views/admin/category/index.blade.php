@@ -19,6 +19,16 @@
               <h3 class="box-title">Category List</h3>
             </div>
             <!-- /.box-header -->
+                @if (session()->has('sucess_message'))
+            <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>
+                    {!! session()->get('sucess_message') !!}
+                </strong>
+            </div>
+        @endif
             <div class="box-body">
               <table class="table table-bordered">
                 <tr>

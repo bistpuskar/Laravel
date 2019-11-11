@@ -18,10 +18,16 @@
             <div class="box-header with-border">
               <h3 class="box-title">News List</h3>
             </div>
-            <!-- /.box-header -->
-            @if(Session::has('sucess_message'))
-              <div class="alert alert-success"> {{ Session::get('sucess_message') }}</div>
-            @endif
+            @if (session()->has('sucess_message'))
+            <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>
+                    {!! session()->get('sucess_message') !!}
+                </strong>
+            </div>
+        @endif
             <div class="box-body">
               <table class="table table-bordered">
                 <tr>

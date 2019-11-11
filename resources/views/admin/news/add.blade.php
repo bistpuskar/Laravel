@@ -17,7 +17,7 @@
       </ul>
     </section>
 
-    <!-- Main content -->
+    <!-- Main content -->  
     <section class="content">
       <div class="row">
         <!-- left column -->
@@ -29,13 +29,18 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="POST" action="{{route('admin.news.store')}}" class="form-horizontal" enctype="multipart/form-data">
+           {{--  <form method="POST" action="{{route('admin.news.store')}}" class="form-horizontal" enctype="multipart/form-data"> --}}
+            @if(!isset($data['row']->id))
+            <form method = "post" action="{{route('admin.news.store')}}" class="form-horizontal" enctype="multipart/form-data">
+            @else
+             <form method = "post" action="{{route('admin.news.update',$data['row']->id)}} class="form-horizontal" enctype="multipart/form-data"">
+            @endif
                   {{ csrf_field() }}
               <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Title</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" name="title" value="" required autofocus>
+                                <input id="title" type="text" class="form-control" name="title" value="{{$data['row']->title }}" required autofocus>
 
                                 @if ($errors->has('title'))
                                     <span class="help-block">
@@ -48,7 +53,7 @@
                             <label for="title" class="col-md-4 control-label">Writer</label>
 
                             <div class="col-md-6">
-                                <input id="writer" type="text" class="form-control" name="writer" value="" required autofocus>
+                                <input id="writer" type="text" class="form-control" name="writer" value="{{ $data['row']->writer }}" required autofocus>
 
                                 @if ($errors->has('writer'))
                                     <span class="help-block">
@@ -61,7 +66,7 @@
                             <label  class="col-md-4 control-label">Short Description</label>
 
                             <div class="col-md-6">
-                                <textarea id="short_desc" class="form-control" name="short_desc" value="" required autofocus></textarea> 
+                                <textarea id="short_desc" class="form-control" name="short_desc" value="{{ $data['row']->short_desc }}" required autofocus></textarea> 
 
                                 @if ($errors->has('short_desc'))
                                     <span class="help-block">
@@ -74,11 +79,11 @@
                             <label  class="col-md-4 control-label">Detail Description</label>
 
                             <div class="col-md-6">
-                                <textarea id="detail_desc" class="form-control" name="detail_desc" value="" required autofocus></textarea> 
+                                <textarea id="detail_desc" class="form-control" name="detail_desc" value="{{ $data['row']->detail_desc }}" required autofocus></textarea> 
 
                                 @if ($errors->has('detail_desc'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('detail _des') }}</strong>
+                                        <strong>{{ $errors->first('detail _desc') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -100,8 +105,10 @@
                             <label class="col-md-4 control-label">Image</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control" name="main_image" value="" required autofocus>
-
+                                <input id="image" type="file" class="form-control" name="main_image" value="" >
+                                  @if($data['row']->image)
+                                  <img src="{{url('public/Images/News/'.$data['row']->image)}}" alt="" width="50">
+                                  @endif
                                 @if ($errors->has('main_image'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('main_image') }}</strong>
@@ -131,7 +138,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
  $('#datepicker').datepicker({
-      format:'yyy/md/dd',autoclose: true
+      format:'yyyy/mm/dd',autoclose: true
     })
   });
 </script>
