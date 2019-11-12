@@ -25,6 +25,7 @@ public function add(){
 	return view($this->view_path.'.add');
 }
 public function store(Request $request){
+	// dd($request->all());
 	 // $validator = Validator::make($request->all(), [
   //           'title' => 'required|unique:posts|max:255',
   //           'body' => 'required',
@@ -41,15 +42,14 @@ public function store(Request $request){
 	    $filename = time() . '.' . $image->getClientOriginalExtension();
 	    $image->move($path, $filename);
 	}
-	$now = date('Y-m-d H:i'); //Fomat Date and time
-        $now = $request->published_date;
+      
         // dd($now);
 	$request->request->add([
 		'title' => str_slug($request->get('title')),
 		'writer' => $request->get('writer'),
 		'short_desc' => $request->get('short_desc'),
 		'detail_desc' => $request->get('detail_desc'),
-		'published_date' => $now,
+		'published_date' => $request->get('published_date'),
 		'status' => $request->get('status') == 'active'?1:0,
 		'image' => isset($filename) ? $filename:null
 	]);
