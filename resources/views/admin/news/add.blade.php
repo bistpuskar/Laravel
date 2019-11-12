@@ -29,17 +29,21 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            @if(!isset($data['row']->id))
-            <form method = "post" action="{{route('admin.news.store')}}" class="form-horizontal" enctype="multipart/form-data">
-            @else
-             <form method = "post" action="{{route('admin.news.update',$data['row']->id)}} class="form-horizontal" enctype="multipart/form-data">
-            @endif
+            <?php if(!isset($data['row'])){
+             $url = route('admin.news.store');
+              $name = 'Add'; 
+            }else{
+              $url = route('admin.news.update',$data['row']->id);
+              $name = 'Edit';
+            }
+             ?> 
+            <form method = "post" action="{{$url}}" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
-               <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                            <label for="title" class="col-md-4 control-label">Title</label>
+               <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Title</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" name="title" value="@if(isset($data['row']->title)) 
+                                <input type="text" class="form-control" name="title" value="@if(isset($data['row']->title)) 
                                {{$data['row']->title}} @endif" required autofocus>
 
                                 @if ($errors->has('title'))
@@ -50,10 +54,10 @@
                             </div>
                         </div> 
                          <div class="form-group{{ $errors->has('writer') ? ' has-error' : '' }}">
-                            <label for="title" class="col-md-4 control-label">Writer</label>
+                            <label class="col-md-4 control-label">Writer</label>
 
                             <div class="col-md-6">
-                                <input id="writer" type="text" class="form-control" name="writer" value="@if(isset($data['row']->writer)){{
+                                <input type="text" class="form-control" name="writer" value="@if(isset($data['row']->writer)){{
                                 $data['row']->writer}}  @endif" required autofocus>
 
                                 @if ($errors->has('writer'))
@@ -67,7 +71,7 @@
                             <label  class="col-md-4 control-label">Short Description</label>
 
                             <div class="col-md-6">
-                                <textarea id="short_desc" class="form-control" name="short_desc" value="@if(isset($data['row']->short_desc)){{$data['row']->short_desc }} @endif" required autofocus></textarea> 
+                                <textarea id="short_desc" class="form-control" name="short_desc"  required autofocus>@if(isset($data['row']->short_desc)){{$data['row']->short_desc }} @endif</textarea> 
 
                                 @if ($errors->has('short_desc'))
                                     <span class="help-block">
@@ -80,7 +84,7 @@
                             <label  class="col-md-4 control-label">Detail Description</label>
 
                             <div class="col-md-6">
-                                <textarea id="detail_desc" class="form-control" name="detail_desc" value="@if(isset($data['row']->detail_desc)){{$data['row']->detail_desc }} @endif" required autofocus></textarea> 
+                                <textarea id="detail_desc" class="form-control" name="detail_desc" required autofocus>@if(isset($data['row']->detail_desc)){{$data['row']->detail_desc }} @endif</textarea> 
 
                                 @if ($errors->has('detail_desc'))
                                     <span class="help-block">
@@ -119,7 +123,7 @@
                         </div>
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">{{$name}}</button>
               </div>
             </form>
           </div>
