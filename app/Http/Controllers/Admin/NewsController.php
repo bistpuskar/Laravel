@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Models\NewsImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -36,12 +37,12 @@ public function store(Request $request){
   //                       ->withErrors($validator)
   //                       ->withInput();
   //       }
-	if($request->hasFile('main_image')){
-		$image = $request->file('main_image');
-		$path = public_path(). '/images/news';
-	    $filename = time() . '.' . $image->getClientOriginalExtension();
-	    $image->move($path, $filename);
-	}
+	// if($request->hasFile('main_image')){
+	// 	$image = $request->file('main_image');
+	// 	$path = public_path(). '/images/news';
+	//     $filename = time() . '.' . $image->getClientOriginalExtension();
+	//     $image->move($path, $filename);
+	// }
       
         // dd($now);
 	$request->request->add([
@@ -50,11 +51,23 @@ public function store(Request $request){
 		'short_desc' => $request->get('short_desc'),
 		'detail_desc' => $request->get('detail_desc'),
 		'published_date' => $request->get('published_date'),
-		'status' => $request->get('status') == 'active'?1:0,
-		'image' => isset($filename) ? $filename:null
+		'status' => $request->get('status') == 'active'?1:0
+		// 'image' => isset($filename) ? $filename:null
 	]);
-	// dd($request->all());
-	News::create($request->all());
+	 // dd($request->all());
+	$row = News::create($request->all());
+	if($images = $request->file('main_image')){
+		foreach ($images as $image) {
+			$path = public_path(). '/images/news';
+	    $filename = time() . '.' . $image->getClientOriginalExtension();
+	    $image->move($path, $filename);
+	NewsImage::create([
+		'news_id' => $row->id,
+		'image_name' => $filename
+	]);
+		}
+	}
+
 	$request->session()->flash('sucess_message','News added Sucessfully');
 	return redirect()->route($this->base_route);
 }

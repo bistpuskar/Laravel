@@ -110,7 +110,7 @@
                             <label class="col-md-4 control-label">Image</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control" name="main_image" value="" >
+                                <input id="image" type="file" class="form-control" name="main_image[]" multiple value="" >
                                   @if(isset($data['row']->image))
                                   <img src="{{url('public/Images/News/'.$data['row']->image)}}" alt="" width="50">
                                   @endif
@@ -139,6 +139,8 @@
 
 @section('js') 
 <script src="{{asset('public/admin-panel/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
 
 <script type="text/javascript">
   $(document).ready(function(){
@@ -146,5 +148,7 @@
       format:'yyyy-mm-dd',autoclose: true
     })
   });
+
+  $('textarea').ckeditor();
 </script>
 @endsection
